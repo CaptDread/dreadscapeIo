@@ -1,4 +1,4 @@
-"use strict"; // Daburger codes!
+// Daburger codes!
 
 var burgerButt = document.querySelector(".daburger");
 var topBun = document.querySelector(".topbun");
