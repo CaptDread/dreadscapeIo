@@ -1,0 +1,321 @@
+/* 
+==============================================
+CONTENT:	Sass Practice
+AUTHOR:		silent but Dreadly
+==============================================
+
+TABLE OF CONTENTS:
+
+0. Reset
+1. Main Layout
+2. Content
+
+==============================================
+*/
+/* 0. Reset ================================= */
+/* 
+If you want to add partials, use Sass Modules via @use:
+@use 'variables';
+
+Usage: partial-name.variable/mixin/function-name:
+background: variables.$primary-color;
+*/
+@use 'reset';
+@use 'variables';
+@use 'mixins';
+/* 1. Main Layout ================================= */
+body {
+	background: #2e3032;
+	margin: 0%;
+}
+
+.wrap {
+	margin: 0% 15%;
+}
+
+/* 2. Content ================================= */
+.headbar {
+	background-color: #fff;
+	height: -webkit-fit-content;
+	height: -moz-fit-content;
+	height: fit-content;
+	display: flex;
+	display: flex;
+	flex-direction: column;
+}
+
+.headbar .headContent {
+	display: flex;
+	justify-content: space-between;
+	flex: 3;
+	font-family: "Titillium Web", sans-serif;
+}
+
+.headbar .headContent .headLogo {
+	display: flex;
+	padding: 0px 1.3em;
+	width: 33.3%;
+	justify-content: space-between;
+}
+
+.headbar .headContent .headLogo .logoLink {
+	padding-top: .42em;
+	z-index: 3;
+}
+
+.headbar .headContent .headLogo .logoLink .dreadlogo {
+	margin-left: 1.3em;
+	width: 4.2em;
+	height: 4.2em;
+}
+
+.headbar .headContent .cartDiv {
+	width: 33.3%;
+	display: flex;
+	margin-left: auto;
+	justify-items: right;
+	align-items: center;
+	padding-top: 1.3em;
+	z-index: 2;
+}
+
+.headbar .headContent .cartDiv img {
+	width: 3em;
+	height: 3em;
+}
+
+.headbar .headContent .cartDiv .headButt {
+	display: flex;
+	margin-left: auto;
+}
+
+.headbar .headContent .cartDiv .headButt .cartButt {
+	display: flex;
+}
+
+.headbar .headContent .cartDiv .headButt .cartButt .cartCount {
+	margin-left: -42%;
+	margin-top: -26%;
+	font-weight: 600;
+	font-size: 1.3em;
+	color: #660099;
+}
+
+.headbar .headContent .nav {
+	width: 15%;
+	display: flex;
+	justify-content: right;
+}
+
+.headbar .headContent .nav .hide-small {
+	display: none;
+}
+
+.headbar .headContent .nav .daburger {
+	width: 7em;
+	align-items: center;
+	background-color: #fff;
+	border: 0.13em #660099 solid;
+	border-top: none;
+	border-bottom: none;
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
+	margin-left: auto;
+}
+
+.headbar .headContent .nav .daburger div {
+	padding: 4.2% 0%;
+	margin: 4.2% 0%;
+	background: linear-gradient(-45deg, #666, #444, #660099, #990066);
+	background-size: 400% 400%;
+	animation: gradient 4.2s ease infinite;
+	border: .013em #660099 solid;
+	width: 75%;
+	position: relative;
+	animation: normal 13s ease;
+}
+
+.headbar .headContent .nav .daburger .topbun {
+	margin-top: 13%;
+}
+
+.headbar .colorbar {
+	height: .42em;
+	width: 100%;
+	background: linear-gradient(-45deg, #666, #660099, #990066, #CC00FF);
+	background-size: 400% 400%;
+	animation: gradient 13s ease infinite;
+	display: inline-block;
+	margin-top: auto;
+}
+
+.description .hero {
+	background: linear-gradient(-45deg, #666, #660099, #990066, #CC00FF);
+	background-size: 400% 400%;
+	animation: gradient 13s ease infinite;
+	border: 1.3em #fff solid;
+	border-radius: 13px;
+	padding: 7em 0em;
+	margin: 4.2% 1.3%;
+	overflow: hidden;
+}
+
+.description .hero .heroImgs {
+	display: flex;
+	padding: -1.3em 0em;
+	height: 50%;
+	justify-content: space-evenly;
+	background-color: #000;
+}
+
+.description .hero .heroImgs img {
+	width: 13em;
+	height: 13em;
+	margin: -5% 0%;
+}
+
+.description .hero .heroImgs .skull1 {
+	transform: rotateY(180deg);
+}
+
+.description .hero .heroImgs .skull3 {
+	transform: rotateY(180deg);
+}
+
+.options .choices {
+	display: flex;
+	flex-direction: column;
+}
+
+.options .choices .option {
+	background-color: #fff;
+	border: 0.42em #660099 solid;
+	border-radius: 13px;
+	display: flex;
+	flex-direction: column;
+	margin: 9% 0%;
+	text-align: center;
+	align-items: center;
+}
+
+.options .choices .option .tagHolder {
+	display: flex;
+	position: relative;
+	width: 60%;
+	margin-right: auto;
+}
+
+.options .choices .option .tagHolder .tag {
+	position: absolute;
+	margin-top: -.66%;
+	margin-bottom: auto;
+	margin-left: -1.3%;
+	width: -webkit-max-content;
+	width: -moz-max-content;
+	width: max-content;
+	background: linear-gradient(-45deg, #666, #444, #660099, #990066);
+	background-size: 400% 400%;
+	animation: gradient 4.2s ease infinite;
+	color: #fff;
+	text-shadow: 0 0 3px #000;
+	padding: 0em .42em;
+	border-radius: 13px;
+	border: 0.42em #660099 solid;
+}
+
+.options .choices .option img {
+	transform: rotateY(180deg);
+	width: 6.66em;
+	align-self: center;
+	margin-top: -17%;
+}
+
+.options .choices .option .h3 {
+	margin-top: -13%;
+	font-family: "Titillium Web", sans-serif;
+}
+
+.options .choices .option .desc {
+	font-family: "Lato", sans-serif;
+	line-height: 1.3;
+	word-spacing: .13em;
+	font-size: 24px;
+}
+
+.options .choices .option .desc span {
+	text-transform: capitalize;
+}
+
+.options .choices .option .desc ul {
+	text-align: left;
+	text-transform: capitalize;
+	font-size: 18px;
+}
+
+.options .choices .option .desc ul li {
+	line-height: 1.5;
+	letter-spacing: .1em;
+}
+
+.options .choices .option .desc ul div {
+	line-height: 1.5;
+	letter-spacing: .1em;
+}
+
+.options .choices .option button {
+	margin-top: auto;
+	font-family: "Lato", sans-serif;
+	background: linear-gradient(-45deg, #666, #660099, #990066, #CC00FF);
+	background-size: 400% 400%;
+	animation: gradient 13s ease infinite;
+	color: #fff;
+	text-shadow: 0 0 3px #000;
+	text-transform: capitalize;
+	width: -webkit-fit-content;
+	width: -moz-fit-content;
+	width: fit-content;
+	border: 0.13em #000 solid;
+	border-radius: 13px;
+	padding: 1.3em;
+	margin-bottom: 1.3%;
+}
+
+footer {
+	display: flex;
+	justify-content: center;
+	padding: 10px 10px;
+	background: #fff;
+	align-items: center;
+	font-size: .75em;
+	justify-content: space-between;
+	bottom: 0%;
+}
+
+footer ul {
+	display: flex;
+}
+
+footer ul li {
+	margin: 0px 2px;
+	list-style-type: none;
+}
+
+footer ul img {
+	width: 4em;
+	height: 4em;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+/*# sourceMappingURL=main.css.map */
