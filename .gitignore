@@ -3,3 +3,5 @@ node_modules
 package-lock.json
 yarn.lock
 *.js
+*.js
+src/js/main.js
