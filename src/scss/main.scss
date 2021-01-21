@@ -23,9 +23,9 @@ Usage: partial-name.variable/mixin/function-name:
 background: variables.$primary-color;
 */
 
-@use 'reset';
-@use 'variables';
-@use 'mixins';
+@use "reset";
+@use "mixins";
+@use "variables";
 
 /* 1. Main Layout ================================= */
 
@@ -107,6 +107,7 @@ body {
 			justify-content: right;
 			.hide-small{
 				display: none;
+
 			}
 			.daburger{
 				width: 7em;
@@ -119,6 +120,7 @@ body {
 				display: flex;
 				flex-direction: column;
 				margin-left: auto;
+
 				
 
 				div{
@@ -137,6 +139,7 @@ body {
 				}
 			}
 		}
+
 	}
 
 	.colorbar{
@@ -189,9 +192,7 @@ body {
 
 .options{
 
-	.choosen{
-
-	}
+	
 	.choices{
 		display: flex;
 		flex-direction: column;
@@ -236,10 +237,6 @@ body {
 				width: 6.66em;
 				align-self: center;
 				margin-top: -17%;
-
-				@include mixins.bp-m {
-					margin-top: -13%;
-				}
 			}
 
 			.h3{
@@ -321,6 +318,23 @@ footer{
 	}
 }
 
+
+@include mixins.bp-M {
+	.options img{
+		margin-top: -7%;
+
+	}
+}
+
+
+@include mixin.bp-L {
+	.hide-small{
+		display: block;
+	}
+	.hide-large{
+		display: none;
+	}
+}
 
 
 
