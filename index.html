@@ -7,9 +7,11 @@
 		<meta name="description" content="" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-		<link rel="stylesheet" href="src/scss/main.css"/>
 		<link rel="preconnect" href="https://fonts.gstatic.com">
 		<link href="https://fonts.googleapis.com/css2?family=Lato&family=Titillium+Web&display=swap" rel="stylesheet"> 
+		<link rel="stylesheet" href="dist/css/main.css"/>
+
+		<script src="https://kit.fontawesome.com/a032c809c9.js" crossorigin="anonymous"></script>
 	</head>
 
 	<body>
@@ -18,7 +20,8 @@
 				<div class="headLogo">
 					<h1>Dreadscape.io</h1>
 					<a class="logoLink" href="">
-						<img class="dreadlogo" src="src/js/dreadScript/logoOpen.png">
+						<img class="dreadlogoOpen" src="src/js/dreadScript/logoOpen.png">
+						<img class="dreadlogoClose" src="src/js/dreadScript/logoClose.png">
 					</a>
 				</div>
 				<div class="cartDiv">
@@ -29,6 +32,11 @@
 						<div id="close" class="cartButt">
 							<img class="cart" src="src/img/icon-shopping-cart.svg" alt="Your Cart">
 							<div class="cartCount"><p class="cartTotal">0</p></div>
+							<div class="cartMenu">
+								<ul class="cartUl">
+									<li class="choosen"></li>
+								</ul>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -46,11 +54,25 @@
 						<div class='topbun'></div>
 						<div class='dagoods'></div>
 						<div class='botbun'></div>
+						<section class="burgerMenu">
+							<nav class="burgNav">
+								<ul>
+									<li><a href="index.html">home</a></li>
+									<li><a class="activeButt" href="">store</a></li>
+									<li><a href="">about</a></li>
+									<li><a href="">blog</a></li>
+									<li><a href="">contact</a></li>
+								</ul>
+							</nav>
+						</section>
 					</div>
 				</div>
 
 			</div>
 			<div class="colorbar"></div>
+			<div class="blur">
+
+			</div>
 		</header>
 
 		<section class="description">
@@ -62,14 +84,15 @@
 				</div>
 			</div>
 			<article>
-
+				<div class="cta">
+					<p>Dreadscape.io is a community driven program that both improves code and pinpoints mistakes that could lead to fatal errors. All staff members are A.i's working with A.i's piloted by volunteer programmers, each with a minimum of 13 years experience. We at Dreadscape.io are here to make sure you don't need to dread.</p>
+					<a href="">try dreadscape.io</a>
+				</div>
 			</article>
 		</section>
 
 		<section class="wrap options">
-			<div class="choosen">
-
-			</div>
+			
 			<div class="choices">
 				<div class="glad option">
 					<img src="src/img/skull3.gif" alt="Beautify thy code, with Dread!">
@@ -164,14 +187,13 @@
 			<p>Copyright © 2021 Dread & Company</p>
 			<ul>
 				<li><a href=""><img src="src/img/creativeCircus.png" alt="The Great Creative Circus"></a></li>
-				<li><a href=""><img src="src/img/gram.png" alt="Check us out on the Gram!"></a></li>
-				<li><a href=""><img src="src/img/you_tube.png" alt="Check us out on the Tubes"></a></li>
-				<li><a href=""><img src="src/img/facebook.png" alt="Something Something Facebook"></a></li>
-				<li><a href=""><img src="src/img/twitter.png" alt="Tweet Tweet Ya'll"></a></li>
+				<li><a style="font-size: 4.2em; color: #000;" href=""><i class="fab fa-instagram"></i></a></li>
+				<li><a style="font-size: 4.2em; color: rgb(4, 74, 107);" href=""><i class="fab fa-facebook"></i></a></li>
+				<li><a style="font-size: 4.2em; color: #900;" href=""><i class="fab fa-youtube"></i></a></li>
+				<li><a style="font-size: 4.2em; color: rgb(4, 74, 107);" href=""><i class="fab fa-twitter-square"></i></a></li>
 			</ul>
 		</footer>
 
-		<script src="src/js/dreadScript/logo.js"></script>
-		<script src="src/js/main.js"></script>
+		<script src="dist/js/main.js"></script>
 	</body>
 </html>

@@ -1,7 +1,7 @@
 /* 
 ==============================================
-CONTENT:	Project Name Here
-AUTHOR:		Your Name Here
+CONTENT:	Sass Practice
+AUTHOR:		silent but Dreadly
 ==============================================
 
 TABLE OF CONTENTS:
@@ -20,93 +20,708 @@ If you want to add partials, use Sass Modules via @use:
 Usage: partial-name.variable/mixin/function-name:
 background: variables.$primary-color;
 */
-@use 'reset';
-/* 1. Main Layout ================================= */
-* {
-	box-sizing: border-box;
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
 }
 
 body {
+	line-height: 1;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+blockquote,
+q {
+	quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* 1. Main Layout ================================= */
+body {
 	background: #2e3032;
+	margin: 0%;
+}
+
+.wrap {
+	margin: 0% 15%;
+}
+
+@media screen and (min-width: 1020px) {
+	.wrap {
+		margin: 0% 4.2%;
+	}
 }
 
 /* 2. Content ================================= */
-.floating-box {
-	position: relative;
-	font-family: sans-serif;
-	width: 90%;
-	max-width: 500px;
-	margin: 140px auto;
-	padding: 30px 20px 30px 30px;
-}
-
-.floating-box .foreground {
-	position: relative;
+.headbar {
+	background-color: #fff;
+	height: -webkit-fit-content;
+	height: -moz-fit-content;
+	height: fit-content;
+	display: flex;
+	display: flex;
+	flex-direction: column;
 	z-index: 2;
-	transform: translateZ(100px);
 }
 
-.floating-box .background {
+.headbar .headContent {
+	display: flex;
+	justify-content: space-between;
+	background-color: #fff;
+	flex: 3;
+	font-family: "Titillium Web", sans-serif;
+	z-index: 3;
+}
+
+.headbar .headContent .headLogo {
+	display: flex;
+	padding: 0px 1.3em;
+	width: 33.3%;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.headbar .headContent .headLogo h1 {
+	font-size: 3em;
+	font-weight: 600;
+	font-family: "Titillium Web", sans-serif;
+}
+
+.headbar .headContent .headLogo .logoLink {
+	padding-top: .42em;
+	z-index: 3;
+}
+
+.headbar .headContent .headLogo .logoLink .dreadlogoOpen {
+	margin-left: 1.3em;
+	width: 4.2em;
+	height: 4.2em;
+	display: block;
+}
+
+.headbar .headContent .headLogo .logoLink .dreadlogoClose {
+	margin-left: 1.3em;
+	width: 4.2em;
+	height: 4.2em;
+	display: none;
+}
+
+.headbar .headContent .headLogo .logoLink:hover .dreadlogoOpen {
+	display: none;
+}
+
+.headbar .headContent .headLogo .logoLink:hover .dreadlogoClose {
+	display: block;
+}
+
+.headbar .headContent .cartDiv {
+	width: 33.3%;
+	display: flex;
+	margin-left: auto;
+	justify-items: right;
+	align-items: center;
+	padding-top: 1.3em;
+	z-index: 2;
+}
+
+.headbar .headContent .cartDiv img {
+	width: 3em;
+	height: 3em;
+}
+
+.headbar .headContent .cartDiv .headButt {
+	display: flex;
+	margin-left: auto;
+}
+
+.headbar .headContent .cartDiv .headButt .cartButt {
+	display: flex;
+}
+
+.headbar .headContent .cartDiv .headButt .cartButt .cartCount {
+	margin-left: -42%;
+	margin-top: 10px;
+	font-weight: 600;
+	font-size: 1.3em;
+	color: #660099;
+}
+
+.headbar .headContent .cartDiv .headButt .cartButt .cartMenu {
+	display: none;
 	position: absolute;
+	top: 10%;
+	right: 25%;
+}
+
+@media screen and (min-width: 1020px) {
+	.headbar .headContent .cartDiv {
+		margin-left: -25%;
+		width: 0%;
+	}
+}
+
+.headbar .headContent .nav {
+	width: 15%;
+	display: flex;
+	justify-content: right;
+}
+
+.headbar .headContent .nav .hide-small {
+	display: none;
+}
+
+@media screen and (min-width: 1020px) {
+	.headbar .headContent .nav .hide-small {
+		display: block;
+		width: -webkit-max-content;
+		width: -moz-max-content;
+		width: max-content;
+		margin-left: -150%;
+		align-content: center;
+	}
+	.headbar .headContent .nav .hide-small ul {
+		display: flex;
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+	}
+	.headbar .headContent .nav .hide-small ul li {
+		display: flex;
+		height: 80px;
+		align-content: center;
+	}
+	.headbar .headContent .nav .hide-small ul li a {
+		display: flex;
+		align-items: center;
+		padding: 20px 20%;
+	}
+}
+
+.headbar .headContent .nav a {
+	color: #000;
+	text-decoration: none;
+	font-size: 1.3rem;
+	text-transform: capitalize;
+}
+
+.headbar .headContent .nav .daburger {
+	width: 7em;
+	align-items: center;
+	background-color: #fff;
+	border: 0.13em #660099 solid;
+	border-top: none;
+	border-bottom: none;
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
+	margin-left: auto;
+}
+
+.headbar .headContent .nav .daburger div {
+	padding: 4.2% 0%;
+	margin: 4.2% 0%;
+	background: linear-gradient(-45deg, #666, #444, #660099, #990066);
+	background-size: 400% 400%;
+	animation: gradient 4.2s ease infinite;
+	border: .013em #660099 solid;
+	width: 75%;
+	position: relative;
+	animation: normal 13s ease;
+}
+
+.headbar .headContent .nav .daburger .topbun {
+	margin-top: 13%;
+}
+
+.headbar .headContent .nav .daburger .burgerMenu {
+	position: absolute;
+	right: 0%;
+	top: 8.5%;
+	display: none;
+	z-index: 2;
+}
+
+.headbar .headContent .nav .daburger .burgerMenu .burgNav {
+	background-color: #fff;
+	opacity: 95%;
+	z-index: -1;
+}
+
+.headbar .headContent .nav .daburger .burgerMenu .burgNav ul {
+	display: grid;
+	width: 100vw;
+	gap: 0;
+	grid-template-columns: repeat(5, 1fr);
+	grid-template-rows: -webkit-fit-content;
+	grid-template-rows: fit-content;
+	border-bottom: 0.42em #000 solid;
+}
+
+.headbar .headContent .nav .daburger .burgerMenu .burgNav ul li {
+	height: -webkit-max-content;
+	height: -moz-max-content;
+	height: max-content;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	border-left: 0.13em #660099 solid;
+	border-right: 0.13em #660099 solid;
+}
+
+.headbar .headContent .nav .daburger .burgerMenu .burgNav ul li a {
+	padding: 20% 25%;
+}
+
+@media screen and (min-width: 1020px) {
+	.headbar .headContent .nav .daburger {
+		display: none;
+	}
+}
+
+.headbar .colorbar {
+	height: .42em;
 	width: 100%;
-	height: 100%;
-	left: 0;
-	top: 0;
-	background: white;
+	background: linear-gradient(-45deg, #666, #660099, #990066, #CC00FF);
+	background-size: 400% 400%;
+	animation: gradient 13s ease infinite;
+	display: inline-block;
+	margin-top: auto;
+}
+
+.headbar .blur {
+	display: none;
+	transition: 4200ms ease 4200ms;
+	-webkit-backdrop-filter: blur(10px);
+	        backdrop-filter: blur(10px);
+	background: #666;
+	position: fixed;
+	width: 100vw;
+	top: 0%;
+	height: 100vh;
 	z-index: 1;
-	transition: 0.2s;
-	transform: translateX(20px) perspective(600px) rotateY(15deg);
+	opacity: 0%;
 }
 
-.floating-box:hover .background {
-	transform: translateX(-30px) perspective(600px) rotateY(-15deg);
+.description .hero {
+	background-image: linear-gradient(-45deg, #666, #660099, #990066, #CC00FF), url("/src/js/dreadScript/logoOpen.png");
+	background-size: 400% 400%, 10px 10px;
+	background-repeat: no-repeat, repeat;
+	animation: gradient 13s ease infinite;
+	border: 1.3em #fff solid;
+	border-radius: 13px;
+	padding: 7em 0em;
+	margin: 4.2% 1.3%;
+	overflow: hidden;
 }
 
-.floating-box .logo {
+.description .hero .heroImgs {
+	display: flex;
+	padding: -1.3em 0em;
+	height: 50%;
+	justify-content: space-evenly;
+	background-color: #000;
+}
+
+.description .hero .heroImgs img {
+	width: 13em;
+	height: 13em;
+	margin: -5% 0%;
+	z-index: 0;
+}
+
+.description .hero .heroImgs .skull1 {
+	transform: rotateY(180deg);
+}
+
+.description .hero .heroImgs .skull3 {
+	transform: rotateY(180deg);
+}
+
+.description .cta {
+	background: #fff;
+	--borderWidth: 4.2px;
+	position: relative;
+	border-radius: var(--borderWidth);
+	padding: 1.3em;
+	margin: 2em 3em;
+	width: -webkit-fit-content;
+	width: -moz-fit-content;
+	width: fit-content;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+}
+
+.description .cta p {
+	margin-bottom: 1.3em;
+}
+
+.description .cta a {
+	text-transform: capitalize;
+	text-decoration: none;
+	color: black;
+}
+
+.description .cta::after {
+	content: "";
 	position: absolute;
-	top: -30px;
-	width: 60px;
-	z-index: 2;
-	transform: translateZ(100px);
-	transition: 0.3s;
+	top: calc(-1 * var(--borderWidth));
+	left: calc(-1 * var(--borderWidth));
+	height: calc(100% + var(--borderWidth) * 2);
+	width: calc(100% + var(--borderWidth) * 2);
+	background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+	border-radius: calc(2 * var(--borderWidth));
+	z-index: -1;
+	animation: gradient 3s ease alternate infinite;
+	background-size: 300% 300%;
 }
 
-.floating-box .logo:hover {
-	-ms-transform: rotate(-0.4turn);
-	    transform: rotate(-0.4turn);
-}
-
-.floating-box h1 {
+.description .cta:hover a {
+	background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+	background-size: 200% auto;
+	background-clip: text;
+	text-fill-color: transparent;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	animation: gradient 3s ease alternate infinite;
+	font-size: larger;
 	font-weight: 700;
-	font-size: 22pt;
-	margin: 15px 0;
+	transition-duration: 420ms;
 }
 
-.floating-box p {
-	color: #777;
-	line-height: 140%;
+@media screen and (min-width: 1400px) {
+	.description .cta:hover a {
+		font-size: 2rem;
+	}
 }
 
-.floating-box p.github {
-	font-size: 0.8em;
+@media screen and (min-width: 1020px) {
+	.description {
+		display: grid;
+		gap: 1.3em;
+		grid-template-columns: 2fr 1fr;
+		margin: 0% 1.3em;
+	}
+	.description .cta {
+		height: 360px;
+		margin-left: 0%;
+		margin-right: 0%;
+		padding: 4.2em 1.3em;
+	}
+	.description .cta p {
+		font-size: 1.3rem;
+	}
+	.description .cta a {
+		margin-top: auto;
+	}
 }
 
-.floating-box p.github a {
-	opacity: 0.2;
-	transition: 0.3s;
+@media screen and (min-width: 1020px) and (min-width: 1400px) {
+	.description {
+		margin-bottom: 20px;
+	}
+	.description a {
+		font-size: 1.3rem;
+	}
 }
 
-.floating-box p.github a:hover {
-	opacity: 1;
-	color: red;
+.options .choices {
+	display: flex;
+	flex-direction: column;
 }
 
-.floating-box code {
+.options .choices .option {
+	background-color: #fff;
+	border: 0.42em #660099 solid;
+	border-radius: 13px;
+	display: flex;
+	flex-direction: column;
+	margin: 9% 0%;
+	padding: 0% 1.3em;
+	text-align: center;
+	align-items: center;
+}
+
+.options .choices .option .tagHolder {
+	display: flex;
+	position: relative;
+	width: 60%;
+	margin-right: auto;
+	margin-left: -1.3em;
+}
+
+.options .choices .option .tagHolder .tag {
 	position: absolute;
-	top: 20px;
-	right: 20px;
-	font-size: 0.8em;
-	opacity: 0.2;
+	margin-top: -.66%;
+	margin-bottom: auto;
+	margin-left: -1.3%;
+	width: -webkit-max-content;
+	width: -moz-max-content;
+	width: max-content;
+	background: linear-gradient(-45deg, #666, #444, #660099, #990066);
+	background-size: 400% 400%;
+	animation: gradient 4.2s ease infinite;
+	color: #fff;
+	text-shadow: 0 0 3px #000;
+	padding: 0em .42em;
+	border-radius: 13px;
+	border: 0.42em #660099 solid;
+}
+
+.options .choices .option img {
+	transform: rotateY(180deg);
+	width: 6.66em;
+	align-self: center;
+	margin-top: -17%;
+}
+
+@media screen and (min-width: 760px) {
+	.options .choices .option img {
+		margin-top: -13%;
+	}
+}
+
+@media screen and (min-width: 760px) and (min-width: 1400px) {
+	.options .choices .option img {
+		margin-top: -10%;
+	}
+}
+
+.options .choices .option .h3 {
+	margin-top: -13%;
+	font-family: "Titillium Web", sans-serif;
+}
+
+.options .choices .option .desc {
+	font-family: "Lato", sans-serif;
+	line-height: 1.3;
+	word-spacing: .13em;
+	font-size: 24px;
+}
+
+.options .choices .option .desc span {
+	text-transform: capitalize;
+}
+
+.options .choices .option .desc ul {
+	text-align: left;
+	text-transform: capitalize;
+	font-size: 18px;
+}
+
+.options .choices .option .desc ul li {
+	line-height: 1.5;
+	letter-spacing: .1em;
+}
+
+.options .choices .option .desc ul div {
+	line-height: 1.5;
+	letter-spacing: .1em;
+}
+
+.options .choices .option button {
+	margin-top: auto;
+	font-family: "Lato", sans-serif;
+	background: linear-gradient(-45deg, #666, #660099, #990066, #CC00FF);
+	background-size: 400% 400%;
+	animation: gradient 13s ease infinite;
+	color: #fff;
+	text-shadow: 0 0 3px #000;
+	text-transform: capitalize;
+	width: -webkit-fit-content;
+	width: -moz-fit-content;
+	width: fit-content;
+	border: 0.13em #000 solid;
+	border-radius: 13px;
+	padding: 1.3em;
+	margin-bottom: 1.3%;
+}
+
+@media screen and (min-width: 1400px) {
+	.options .choices .option .optInfo p {
+		margin: 15px 0px;
+	}
+}
+
+.options .choices .option:hover button {
+	background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+	background-size: 400% 400%;
+	animation: gradient 4.2s ease infinite;
+	transition-duration: 420ms;
+	transition-delay: 420ms;
+}
+
+@media screen and (min-width: 1020px) {
+	.options .choices {
+		display: grid;
+		-webkit-column-gap: 10%;
+		        column-gap: 10%;
+		grid-template: "mad mad" 1fr "sad glad" 1fr / 45% 45%;
+	}
+	.options .choices .glad {
+		grid-area: glad;
+	}
+	.options .choices .sad {
+		grid-area: sad;
+	}
+	.options .choices .mad {
+		grid-area: mad;
+	}
+}
+
+footer {
+	display: flex;
+	justify-content: center;
+	padding: 10px 10px;
+	background: #fff;
+	align-items: center;
+	font-size: .75em;
+	justify-content: space-between;
+	bottom: 0%;
+}
+
+footer ul {
+	display: flex;
+}
+
+footer ul li {
+	margin: 0px 2px;
+	list-style-type: none;
+}
+
+footer ul img {
+	width: 4em;
+	height: 4em;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 /*# sourceMappingURL=main.css.map */
